@@ -6,4 +6,6 @@
 {% endfor %}
 </ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<a href="{% url 'fill:detail' question.id %}">Vote again?</a>
+
+<p>"{{ choice.fill_text }}"</p>
