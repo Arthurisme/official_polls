@@ -1,0 +1,193 @@
+/*  Styles (LESS) for Greybox Health Web Portal
+    mixins.less - used accross other .less files (which imports mixins.less)
+    Created: 3/8/2015
+*/
+
+@import "variables.less";
+
+// ====================================================================================================
+/* UI ELEMENTS ======================================================================================== */
+
+// Standard button (size fits the label)
+.stdButton (@color:@primaryAccent, @fontSize:20, @buttonSize:15, @margin:5){
+    color: @color;
+    font-size: @fontSize*1px;
+    padding: @buttonSize*1px;
+   	margin: @margin*1px;
+   	border: 2px solid @color;
+   	background-color: transparent;
+    cursor: pointer;
+    display:inline-block;
+    &:hover{
+      background-color: @color;
+      color: @background;
+    }
+    &.disabled{
+      cursor:default;
+      color: @lightNeutral;
+      border: 2px solid  @lightNeutral;
+      &:hover{
+        background-color: transparent;
+      }
+    }
+    &.active{
+      background-color: @color;
+      color: @background;
+    }
+}
+
+// applied to wrapper around img
+.profilePic (@size: 100) {
+    .roundCorners (@size,1,1,1,1);
+    .center();
+    width: @size*1px;
+    height: @size*1px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid @lightNeutral;
+    img {
+      height: 100%;
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
+      margin: auto;
+    }
+}
+
+// ====================================================================================================
+/* LAYOUT ============================================================================================= */
+
+.center (){
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Applied to container: children will be aligned vertically
+// if span with class vertical align is child of container
+.verticalAlign (@align:middle){
+    white-space: nowrap;
+    *{
+        white-space: normal;
+    }
+    span.vertical-align {
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: 0;
+    }
+}
+
+// ====================================================================================================
+/* TEXT =============================================================================================== */
+
+
+.text(@font: 'Flama', @font-category: sans-serif, @color:@stdText, @size:16){
+    font-family: @font, @font-category;
+    font-size: @size*1px;
+    color: @color;
+}
+
+.headerText (@color:@stdText){
+    .text('Flama-Ultralight', sans-serif, @color, 26);
+}
+
+.normalText (@color:@stdText){
+    .text();
+}
+
+.titleText (@color:@stdText){
+    .text('Flama', sans-serif, @color, 20);
+}
+
+.extraLargeText (@color:@stdText){
+    .text('Flama', sans-serif, @color, 56);
+}
+
+.boldText (@color:@stdText){
+    .text('Flama-Bold', sans-serif, @color, 30);
+}
+
+.labelText (@color:@stdText){
+    .text('Flama', sans-serif, @color, 16);
+    text-transform: uppercase;
+}
+
+.handText (@color:@stdText){
+    .text('ALaMain', "'Flama', sans-serif", @color, 18);
+    font-style: italic;
+    line-height: 2;
+}
+
+.posterText(@color:@stdText, @size:125){
+    .text('Flama-Ultralight', sans-serif, @color, 125);
+    text-transform: uppercase;
+}
+
+
+
+// ====================================================================================================
+/* SPRITES ============================================================================================ */
+
+// works with sprites containing SQUARE glyphs of IDENTICAL size
+// glyphs must be arranged in ONE ROW (horizontally)
+.sprite (@spriteURL, @spriteWidth, @iconWidth, @column) {
+    display: inline-block;
+    max-width: @iconWidth*1px;
+    background: url(@spriteURL);
+    background-repeat: no-repeat;
+    // (sprite width / icon width) x 100 = %
+    background-size: ( @spriteWidth / @iconWidth )*100*1%;
+    margin-left: auto;
+    margin-right: auto;
+    // 100 x (column coord x icon width) / (sprite width - icon width) = %
+    background-position: 1%*(100*((( @column )-1)* @iconWidth )/( @spriteWidth - @iconWidth )) 0%;
+    width: 100%;
+    position: relative;
+    &:before{
+        content: "";
+        display: block;
+        padding-top: 100%;  /* initial ratio of 1:1*/
+    }
+}
+
+.icon120 (@column:1){
+    .sprite( "/static/img/sprite_120.png", 3720, 120, @column);
+}
+
+.icon30 (@column:1){
+    .sprite( "/static/img/sprite_30.png", 60, 30, @column);
+}
+
+// ====================================================================================================
+/* COSMETIC =========================================================================================== */
+
+// cross-browser compatible "border-radius"
+// for topLeft, topRight, btmRight, btmLeft: 1 = apply to corner, 0 = not applied to corner
+.roundCorners (@radius: 25, @topLeft:1, @topRight:1, @btmRight:1, @btmLeft:1) {
+    overflow:hidden;
+
+    -webkit-border-top-left-radius: @radius*@topLeft*1px;
+    -webkit-border-top-right-radius: @radius*@topRight*1px;
+    -webkit-border-bottom-right-radius: @radius*@btmRight*1px;
+    -webkit-border-bottom-left-radius: @radius*@btmLeft*1px;
+
+    -moz-border-radius-topleft: @radius*@topLeft*1px;
+    -moz-border-radius-topright: @radius*@topRight*1px;
+    -moz-border-radius-bottomright: @radius*@btmRight*1px;
+    -moz-border-radius-bottomleft: @radius*@btmLeft*1px;
+
+    border-top-left-radius: @radius*@topLeft*1px;
+    border-top-right-radius: @radius*@topRight*1px;
+    border-bottom-right-radius: @radius*@btmRight*1px;
+    border-bottom-left-radius: @radius*@btmLeft*1px;
+}
+
+// cross-browser compatible inset shadow
+.innerShadow(@horLength, @verLength, @blurRadius, @spreadRadius){
+    -webkit-box-shadow: inset @horLength*1px @verLength*1px @blurRadius*1px @spreadRadius*1px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset @horLength*1px @verLength*1px @blurRadius*1px @spreadRadius*1px rgba(0,0,0,0.75);
+    box-shadow: inset @horLength*1px @verLength*1px @blurRadius*1px @spreadRadius*1px rgba(0,0,0,0.75);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+
+    <link href="css/custom.css" rel="stylesheet">
+    
+<title>Form Validation</title>
+<script type="text/javascript">
+         <!--
+            // Form validation code will come here.
+         //-->
+      </script>
+</head>
+
+<body>
+<div id="physiqueform">
+  <form action="/cgi-bin/test.cgi" name="myForm" onsubmit="return(validate());">
+    <table cellspacing="2" cellpadding="2" border="1">
+      <tr>
+        <td align="right">Age</td>
+        <td><input  
+ 
+background: #fee3ad;
+ 
+    type="text" name="Age" /></td>
+      </tr>
+      <tr>
+        <td align="right">Genre</td>
+        <td><select name="Genre">
+            <option value="-1" selected>[choose yours]</option>
+            <option value="1">Female</option>
+            <option value="2">Male</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td align="right">Poids</td>
+        <td><input type="text" name="Poids" /></td>
+      </tr>
+      <tr>
+        <td align="right">IMC</td>
+        <td><input type="text" name="IMC" /></td>
+      </tr>
+      <tr>
+        <td align="right"></td>
+        <td><input type="submit" value="Submit" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

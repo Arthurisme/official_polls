@@ -1,0 +1,63 @@
+<--! try questionaire data get-->
+ {% comment %} This is for test the high model: questionnaire {% endcomment %}
+
+
+{% if  questionnaire %}
+
+    <--! try questionaire list:-->
+    <p>{{ questionnaire }}</p>
+     <--! try questionaire name list:-->
+    <p>{{ questionnaire.name }}</p>{% comment %} for testing logic{% endcomment %}
+    <ul>
+        {% for questionnaire_item in questionnaire %}
+            <li><a href="http://www.prestigetech.com/">{{ questionnaire_item.name }}</a></li>    {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+
+{% endif %}
+
+<--! try question data get-->
+{% if  questionnaire %}
+
+    <--! try question list:-->
+    <p>{{ question }}</p>
+    <--! try question type  list:-->
+    <ul>
+        {% for question_item in question %}
+            <li><a href="http://www.prestigetech.com/">{{ question_item.type_of_q }}</a></li>    {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+
+{% endif %}
+
+<--! try tf_question data get-->
+{% if  questionnaire %}
+
+  <--! try tf_question list:-->
+    <p>{{ tf_question }}</p>
+
+    <ul>
+        {% for tf_question_item in tf_question %}
+            <li><a href="http://www.prestigetech.com/">{{ tf_question_item.tf_question }}</a></li>    {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+    <p>{{ question }}</p>
+    <p>{{ tf_question.name }}</p>
+{% endif %}
+
+
+<--! try testcontext data get-->
+
+
+  <p>{{ testcontext }}</p>
+   <p>{{ questionnaire }}</p>
+    <p>{{ question }}</p>
+    <p>{{ tf_question }}</p>
+
+  <p>dd</p>

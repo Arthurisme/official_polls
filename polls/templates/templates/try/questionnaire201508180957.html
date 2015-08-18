@@ -1,0 +1,15 @@
+{% if  questionnaire  %}
+
+       <p>{{  questionnaire  }}</p>
+     <p>{{  question  }}</p>
+    <p>{{  questionnaire.name  }}</p>
+    <ul>
+    {% for q in questionnaire %}
+<li><a href="http://www.prestigetech.com/">{{ q.name }}</a></li>    {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+     <p>{{  question  }}</p>
+    <p>{{  questionnaire.name  }}</p>
+{% endif %}

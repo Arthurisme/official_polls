@@ -1,0 +1,27 @@
+<!-- Table -->
+<table class="lead-table table-striped">
+    <thead><!-- Table header -->
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th><span class="icon"><span class="vertical-align"></span></span><span class="text">Total Bolts</span></th>
+        </tr>
+    </thead>
+    <tbody><!-- Table body -->
+        {% for p in lead_list %}
+        <tr>
+            <td></td>
+            <td>
+                <span class="vertical-align"></span>
+                <a href="/staff_patient_profile/{{p.id}}/">
+                    <div id = "profile-picture">
+                        <img src="/static/img/user.png" alt="Profile Picture"/>
+                    </div>
+                </a>
+                <a href="/staff_patient_profile/{{p.id}}/">{{ p.Name }}</a>
+            </td>
+            <td>{{ p.Bolts }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

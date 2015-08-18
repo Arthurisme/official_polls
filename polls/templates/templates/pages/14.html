@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div class="align-txt">page 14</div>
+
+
+
+<p align="left">How many times of exercises you done?</p>
+ 
+
+ 
+<input name="filename" id="filename" type="text">
+<br>
+
+<!--a id="record_button" onclick="recordToFilename();" href="javascript:void(0);" title="Record">Record</a-->
+<button style=" color:red;  background-color:pink" onclick="recordToFilename();">Record your data</button>
+
+
+
+<script>
+function recordToFilename() {
+    var input = document.getElementById('filename'),
+        fileName = input.value;
+    if (fileName) {
+        alert('Recording: ' + fileName);
+        // Recorder.record('audio', fileName);
+    } else {
+        alert('Please enter a something!');
+        input.focus();
+    }
+}
+</script>
+</body>
+</html>

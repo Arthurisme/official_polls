@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+	function tryshowtxt(result){
+            $("#div1").html(result);
+			
+    $("button").click(function(){
+		
+        };
+        $.ajax({url: "1.html",
+            success: tryshowtxt(result) });
+    });
+});
+
+
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
+
+</body>
+</html>

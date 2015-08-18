@@ -1,0 +1,128 @@
+/*  Styles (LESS) for Greybox Health Web Portal
+    leaderboard.less
+    Created: 3/8/2015
+*/
+
+@import "variables.less";
+@import "mixins.less";
+
+// Header
+#leaderboard-header .icon {
+    .icon120(25);
+}
+
+// Controls
+#leaderboard-controls{
+    .button{
+        font-size: 16px;
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+// Content (Table)
+#leaderboard-content{
+    margin: 25px 0px;
+    .table-responsive .lead-table{
+        width: 100%;
+        // table head
+        thead tr th{
+            cursor: pointer;
+            border-bottom-width: 3px;
+            border-bottom-style: solid;
+            border-bottom-color: @lightNeutral;
+            .labelText();
+            &:nth-child(1){
+                &:hover, &.headerSortUp, &.headerSortDown{
+                    border-bottom-color: @stdText;
+                }
+            }
+            &:nth-child(2){
+                &:hover, &.headerSortUp, &.headerSortDown{
+                    border-bottom-color: @stdText;
+                }
+            }
+            &:nth-child(3){
+                &:hover, &.headerSortUp, &.headerSortDown{
+                    border-bottom-color: @tabAccent2;
+                }
+                .icon{
+                    .icon120(14);
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+            .icon{
+                vertical-align: middle;
+            }
+            .text{
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0px 10px 0px 10px;
+            }
+        }
+        // table body
+        tbody td{
+            white-space: nowrap;
+            .headerText();
+            #profile-picture{
+                .profilePic();
+                vertical-align: middle;
+            }
+            a{
+                display: inline-block;
+                vertical-align: middle;
+                margin: 10px;
+            }
+            &:nth-child(3) {
+               .boldText();
+            }
+        }
+        // both table body and table head
+        tr{
+            th, td{
+                padding: 10px;
+            }
+            &:nth-child(even) {
+                background-color:@veryLightGrey;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #leaderboard-content{
+        margin: 25px 0px;
+        padding: 0px;
+        .table-responsive .lead-table{
+            // table body
+            tbody td{
+                text-align: center;
+                white-space: normal;
+                .text();
+                font-size: @medium*1px;
+                a{
+                    display: block;
+                }
+                &:nth-child(3) {
+                   .boldText();
+                    font-size: @large*1px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    #leaderboard-content{
+        .table-responsive .lead-table{
+            // table body
+            tbody td {
+                text-align: center;
+                white-space: normal;
+                a{
+                    display: block;
+                }
+            }
+        }
+    }
+}

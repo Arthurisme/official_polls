@@ -1,0 +1,2 @@
+Test page 8:
+page 8, is load by 1+2 txt

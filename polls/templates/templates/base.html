@@ -1,0 +1,75 @@
+{% load staticfiles %}
+{% load compile_static %}
+
+<!DOCTYPE html>
+<!-- ===================================================================================
+      ___          ___          ___                               ___          ___      
+     /\__\        /\  \        /\__\                _____        /\  \        /|  |     
+    /:/ _/_      /::\  \      /:/ _/_       ___    /::\  \      /::\  \      |:|  |     
+   /:/ /\  \    /:/\:\__\    /:/ /\__\     /|  |  /:/\:\  \    /:/\:\  \     |:|  |     
+  /:/ /::\  \  /:/ /:/  /   /:/ /:/ _/_   |:|  | /:/ /::\__\  /:/  \:\  \  __|:|__|     
+ /:/__\/\:\__\/:/_/:/__/___/:/_/:/ /\__\  |:|  |/:/_/:/\:|__|/:/__/ \:\__\/::::\__\_____
+ \:\  \ /:/  /\:\/:::::/  /\:\/:/ /:/  /__|:|__|\:\/:/ /:/  /\:\  \ /:/  /~~~~\::::/___/
+  \:\  /:/  /  \::/~~/~~~~  \::/_/:/  //::::\  \ \::/_/:/  /  \:\  /:/  /     |:|~~|    
+   \:\/:/  /    \:\~~\       \:\/:/  / ~~~~\:\  \ \:\/:/  /    \:\/:/  /      |:|  |    
+    \::/  /      \:\__\       \::/  /       \:\__\ \::/  /      \::/  /       |:|__|    
+     \/__/        \/__/        \/__/         \/__/  \/__/        \/__/        |/__/    
+
+==================================================================================== -->
+
+<html lang="en" class="no-js" xmlns:mso="urn:schemas-microsoft-com:office:office"
+      xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"/>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="utf-8" http-equiv="encoding"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- above meta tags *must* come first in the head -->
+
+    <!-- favicon & shortcut icon -->
+    <link rel="icon" type="image/ico" href="{% static 'img/greybox_favicon.ico' %}"/>
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon-precomposed.png' %}"/>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'COMPILED/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}{% compile 'css/main.less' %}" />
+    
+    <title>{% block title %}{% endblock %} | Greybox</title>
+    
+    <!-- google analytics -->
+    <script type="text/javascript" src="{% static 'js/google-analytics.js' %}"></script>
+    <!-- modernizr must be loaded at beginning of page -->
+    <script type="text/javascript" src="{% static 'js/libraries/modernizr.custom.js' %}"></script>
+    
+    {% block styles %}<!-- stylesheets for specific template go here -->{% endblock %}
+</head>
+
+<body>
+    <!-- HEADER -->
+    {% block header %}{% include "header.html" %}{% endblock %}
+    
+    <!-- CONTENT -->
+    {% block wrapper %}
+    <section class = "main-content-wrapper">
+        <section class = "main-content-container">
+        {% block content %}
+            <!-- Content of page goes here -->
+        {% endblock %}
+        </section><!-- End of main content container -->
+    </section><!-- End of main content wrapper -->
+    {% endblock %}
+    
+    <!-- FOOTER -->
+    {% block footer %}{% include "footer.html" %}{% endblock %} 
+                 
+    <!-- scripts: placed at the end of the document so pages load faster -->
+    <script type="text/javascript" src="{% static 'js/libraries/jquery.min.js' %}"></script><!-- JQuery -->
+    <script type="text/javascript" src="{% static 'js/libraries/bootstrap.min.js' %}"></script><!-- Bootstrap -->
+    <!-- custom - for all templates -->
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    
+    {% block scripts %}<!-- scripts for specific template go here -->{% endblock %}  
+</body>
+
+</html>

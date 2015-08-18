@@ -1,0 +1,22 @@
+<div class="top-nav">
+        <!-- Top Navigation -->
+        <div class="top-nav-left">
+            <a href="/patient-profile/"><img id="main-logo" alt="GREYBOX" src="/static/img/alt_logo.png"/></a>  
+        </div>
+        <div class="top-nav-right" id="expand-menu-button">
+            <div id="menu-icon" alt="Menu"><!-- icon --></div>
+        </div>
+        <div class="top-nav-right" id="menu">
+            <ul class="nav-items">
+                {% if user.is_staff %}
+                    <li><a href='/patient-list/'>{{ staff.firstName }} {{staff.lastName }}</a></li>
+                {% else %}
+                    <li><a href='/patient-profile/'>{{ client.firstName }} {{ client.lastName }}</a></li>
+                {% endif %}
+                <li><a href="/change-password/">Changer le mot de passe</a></li>
+                <li><a href="/logout/">Déconnexion</a></li>
+                <!-- Side navigation -->
+                {% include "nav-bar-side.html" %}
+            </ul>
+        </div>
+</div>

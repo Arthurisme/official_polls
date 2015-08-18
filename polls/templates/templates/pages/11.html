@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+ 
+
+ <script>
+     function second() {
+		
+        if (s > 0 && (s % 60) == 0) { m += 1; s = 0; }
+        if (m > 0 && (m % 60) == 0) { h += 1; m =0; }
+        t =(h <= 9 ? "0" + h : h) + ":" + (m <= 9 ? "0" + m : m) + ":" + (s <= 9 ? "0" + s : s); 
+        document.getElementById("showtime").value = t;
+        s += 1;
+    }
+	function startclock() { se = setInterval("second()", 1000); }
+	
+     //$(document).ready(function startclock() { se = setInterval("second()", 1000); });
+    function pauseclock() { clearInterval(se); }//暂停
+    function stopclock() { clearInterval(se); m = h = s = 0; }//停止
+ </script>
+
+
+
+<head>
+<body>
+ 
+<p>Click the button to start clock</p>
+
+<button style=" color:red;  background-color:pink" onclick="startclock()">Start</button>
+
+<p>Click the button to stop clock</p>
+
+<button  style=" color:red;  background-color:pink" onclick="stopclock()">Stop</button>
+<p> </p>
+
+<input type="text" name="showtime" id="showtime" readonly=readonly style=" background-color:pink; color:red; font-size:15px;" value="00:00:00">
+
+
+
+</body>
+</html>

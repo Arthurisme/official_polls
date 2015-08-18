@@ -1,0 +1,19 @@
+<html>
+<head>
+<script id="htmlTemplate" type="text/x-tmpl">
+    This <h1>is</h1> templated.
+</script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function() {
+            $('#2nd').html($('#htmlTemplate').text());
+        }
+    );
+</script>
+</head>
+<body>
+    <div id="1st">First div</div>
+    <div id="2nd">Second div</div>
+</body>
+</html>

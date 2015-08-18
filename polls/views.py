@@ -11,6 +11,11 @@ class IndexView(generic.ListView):
     #context_object_name = 'latest_question_list'
     context_object_name = 'question'
 
+    test1="test1t ested"
+
+    def IndexView(request):
+        return {"message": "Here is some text"}
+
     def get_queryset(self):
         """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]

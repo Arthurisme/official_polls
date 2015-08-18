@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load compile_static %}
+
+{% block title %}Connexion{% endblock %}
+    
+{% block styles %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}{% compile "css/cover.less" %}" />
+{% endblock %}
+
+{% block header %}<!-- no header -->{% endblock %}
+
+{% block wrapper %}
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <img class="masthead-brand" src="/static/img/logo.png">
+                </div>
+            </div>
+
+            <div class="inner cover">
+                {% block form %}
+                <h1 class="cover-heading">Connexion au portail</h1>
+                <p class="lead">
+                    <div id="main">
+                        <form action="/login/" method="post" class="form-signin">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <p>{{field}}</p>
+                            {% endfor %}
+                            <br>
+                            <input type="submit" value="Submit" class="btn btn-lg btn-default"/>
+                        </form>
+                    </div>
+                </p>
+                {% endblock %}
+            </div>
+
+            <div class="mastfoot"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}<!-- no footer -->{% endblock %}
+      
+{% block scripts %}
+    <script>
+        {% ifequal unauthFlag 1 %}
+            alert("Incorrect Email Address or Password");
+        {% endifequal %}
+        {% ifequal unauthFlag 2 %}
+            alert("Password Successfully Changed");
+        {% endifequal %}
+    </script>
+{% endblock %} 

@@ -1,0 +1,345 @@
+/*  Styles (LESS) for Greybox Health Web Portal
+    main.less - loaded on all pages (which extend from base.html)
+    Created: 3/8/2015
+*/
+
+
+@import "variables.less";
+@import "mixins.less";
+
+// ====================================================================================================
+/* BASIC HTML ELEMENTS ================================================================================ */
+
+body, html {
+    .normalText (); // can be changed in mixins.less
+    background-color: @background; // can be changed in variables.less
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Links */
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+/* Lists */
+ul, li{
+    list-style-type: none;
+    list-style-position:inside;
+    margin:0;
+    padding:0;
+}
+
+// ====================================================================================================
+/* UI ELEMENTS COMMON TO ALL PAGES  =================================================================== */
+
+/* Page header with title and icon */
+.header-container{
+    text-align: center;
+    margin-bottom: 25px;
+    .header{
+        .headerText();
+        margin: 25px 0;
+    }
+    .icon-container{
+        padding: 25px;
+        height: 0px;
+        width: 0px;
+        background-color: @primaryAccent;
+        margin: 0 auto;
+        .roundCorners(200, 1,1,1,1);
+        .icon{
+            vertical-align: middle;
+        }
+    }
+}
+.page-header{  
+    margin: 10px 0 0px;
+    .headerText ();
+    padding: 15px 0px 15px 0px;
+    border-bottom: 0px solid @lightNeutral;
+}
+
+/* Overlay (i.e. lightbox, modal) */
+.overlay-wrap {
+    left:0;
+    top:0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    .overlay-screen {
+        background-color: @stdText;
+        zoom: 1;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        text-align: center;
+        white-space: nowrap;
+    }
+    .close-overlay {
+      width: 50px;
+      height: 50px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+        .icon {
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+            width: 50px;
+            height: 50px;
+            background: url('../../shared/images/icons_sprite.png');
+            background-position: 150px 0px;
+        }
+        &:hover .icon {
+            background-position: 150px 50px;
+        }
+    }
+}
+
+/* hide elements of page */
+.hidden {
+    visibility: hidden !important;
+}
+
+/* Button */
+.button {
+    .stdButton();
+}
+
+/* Overlays elements with "Coming Soon" label (For Dev, Beta ONLY) */
+.coming-soon {
+    position: relative;
+    .coming-soon-overlay{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: rgba(248, 248, 248, 0.5);
+      div{
+        display:inline-block;
+        vertical-align: middle;
+          &#text{
+            .labelText (@stdText);
+            padding: 15px;
+            border: 1px solid @stdText;
+            font-size: 1rem;
+          }
+          &#vertical-adjust{
+            height: 100%;
+            width: 0px;
+          }
+      }
+    }
+}
+
+// ====================================================================================================
+/* SITE NAVIGATION AND MENUS  ========================================================================= */
+
+/* Top navigation */
+.top-nav{
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: @background;
+    border-bottom: 2px solid @lightNeutral;
+    /* Left side */
+    .top-nav-left{
+        display: inline-block;
+        vertical-align: middle;
+        #main-logo{
+            margin: 5px 0px 0px 20px;
+            height: 40px;
+        }
+    }
+    /* Right side */
+    .top-nav-right{
+        display: inline-block;
+        vertical-align: middle;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        .nav-items{
+            margin: 13px 20px 0px 0px;
+            li{
+                display:inline-block;
+                padding: 0px 0px 0px 20px;
+                a{
+                    text-decoration: none;
+                    color:@stdLink;
+                    &:hover{
+                        color:@hoverLink;
+                    }
+                }
+            }
+        }
+        &#expand-menu-button{
+            display:none;
+            margin: 10px 20px 0px 0px;
+            #menu-icon{
+                .icon30(1);
+                width:30px;
+                height:30px;
+                cursor: pointer;
+                &.active{
+                    .icon30(2);
+                    width:30px;
+                    height:30px;
+                }
+            }
+        }
+    }
+}
+
+    
+/* Sidebar navigation */  
+.top-nav .top-nav-right .nav-items #side-nav {
+    padding: 0px;
+    background-color: @primaryAccent;
+    border-right: 1px solid @background;
+    left: 0;
+    top:49px;
+    position: fixed;
+    z-index: 98;
+    height: 100%;
+    width: 250px;
+    .innerShadow(-2,0,15,-5);
+    li{
+        list-style-type: none;
+        list-style-position:inside;
+        margin:0;
+        padding:0;
+        width:100%;
+        display:block;
+        a{
+            width:100%;
+            padding: 15px 20px 15px 20px;
+            display: block;
+            color: @background;  
+            text-decoration: none;
+        }
+        &:hover{
+            a{
+                background-color: @stdText;
+            }
+        }
+        &.active{
+            a{
+                color: @stdText;
+                background-color: @background;
+                border-top: 1px solid @lightNeutral;
+                border-bottom: 2px solid @lightNeutral;
+            }
+        }
+    }  
+}
+
+/* Container of content of each page */
+.main-content-wrapper {
+    text-align: center;
+    padding: 0px 25px 0px 275px;
+    .main-content-container {
+        background-color: @background;
+        text-align: left;
+        padding: 50px 0 50px 0;
+        max-width: 1300px;
+        min-width: 300px;
+        font-size: 15px;
+        display: block;
+        margin:0px auto;
+        height: 100%;
+    }
+}
+
+// ====================================================================================================
+/* SMALL SNIPPETS OF LESS FOR SPECIFIC PAGES ========================================================== */
+
+iframe{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.widget-title{
+    .titleText(@stdText);
+}
+
+// ====================================================================================================
+/* MEDIA QUERIES FOR RESPONSIVE DESIGN ================================================================ */
+
+@media only screen and (max-width: 768px) {
+    .top-nav{
+        position: absolute;
+        .top-nav-right{
+            &#expand-menu-button{
+                display:inline-block;
+            }
+            &#menu{
+                margin: 50px 0px 0px 0px;
+                .nav-items{
+                  display:none;
+                  background-color: @primaryAccent;
+                  width: 100%;
+                  border-bottom: 2px solid @lightNeutral;
+                  margin:0px;
+                  #side-nav{
+                      position: inherit;
+                      border: 0px;
+                      display: block;
+                      border-top: 1px solid @stdText;
+                      .innerShadow(0,0,0,0);
+                      li.active a {
+                        border:0px;
+                        &:hover{
+                           color: @stdText; 
+                        }
+                      }
+                  }
+                  li{
+                    text-align: right;
+                    width: 100%;
+                    cursor:pointer;
+                    margin: 0px;
+                    padding: 0px;
+                    display: block;
+                    a{
+                        display: block;
+                        padding: 20px 20px 20px 20px;
+                        color:@background;
+                        &:hover{
+                            color:@background;
+                        }
+                    }
+                    &:hover{
+                    background-color: @stdText;
+                    }
+                  }
+                  &.active{
+                    display:block;
+                  }
+                }
+            }
+        }
+    }
+
+    .main-content-wrapper{
+        padding: 0 5px !important;
+    }
+}

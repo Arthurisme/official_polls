@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load compile_static %}
+
+{% block title %}Enregistrer un nouvel appareil{% endblock %}
+    
+{% block styles %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}{% compile "css/dashboard.less" %}" />
+{% endblock %}
+    
+{% block content %}
+
+    <h2 class="sub-header">Enregistrer un nouvel appareil pour {{client.firstName}} {{client.lastName}}</h2>
+    {% if error %}
+    <p>Erreur</p> {{ error }}
+    {% endif %}
+    <form action="/register_device/{{client.id}}/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="button" class="btn btn-success">Programme A</button>
+        <button type="button" class="btn btn-warning">Programme B</button>
+        <button type="button" class="btn btn-danger">Programme C</button>
+        <br>
+        <br>
+        <input value="submit" class="btn btn-lg btn-default"/>
+    </form>
+{% endblock %}
+      
+{% block scripts %}
+    <script type="text/javascript">
+        var patient_name = "{{client.firstName}}"+" {{client.lastName}}"
+        var patient_id = "{{client.id}}"
+    </script>
+{% endblock %} 

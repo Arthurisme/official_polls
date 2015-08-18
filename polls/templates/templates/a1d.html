@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+var numberOfPage=0;
+
+ //txt to html method:
+ function txtToHtmlFunction(txt){
+	 return "tested:!!"+txt;
+ }
+	
+	//var urlTest1="1.html";
+$(document).ready(function(){
+	
+    $("#clickTest").click(function(){
+		
+		//url changed method
+		 numberOfPage++;
+		var urlForData= ""+numberOfPage+".txt";
+		
+        $.ajax({url: urlForData, 
+		dataType: "text",
+		success: function(result){
+			
+			//var txtToHtml= "cc"+result;
+			 var txtToHtml=    txtToHtmlFunction(result);
+			
+            $("#questions-main-body").html(txtToHtml );
+        }});
+    });
+});
+</script>
+</head>
+<body>
+
+<div id="questions-main-body"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button id="clickTest">Get External Content</button>
+
+</body>
+</html>

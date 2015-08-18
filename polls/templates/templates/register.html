@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Enregistrer un nouveau patient{% endblock %}
+    
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'COMPILED/css/jquery-ui.min.css' %}">
+{% endblock %}
+    
+{% block content %}
+    <h2 class="sub-header">Enregistrer un nouveau patient</h2>
+    <div id="main">
+        {% if error %}
+        <p>Erreur</p> {{ error }}
+        {% endif %}
+        <form action="/register/" method="post" class="form-signin">
+            {% csrf_token %}
+            <!-- Render form wrap in <p> -->
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Submit" class="btn btn-lg btn-default"/>
+        </form>
+    </div>
+{% endblock %}
+      
+{% block scripts %}
+    <script src="{% static 'js/libraries/jquery-ui.min.js' %}"></script>
+    <script>
+    $(document).ready(function() {
+        $('.datepicker').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-110:+0",
+        });
+    });
+    </script>  
+{% endblock %} 

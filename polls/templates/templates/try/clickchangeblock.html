@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<div id="book1">
+    <div class="page1" style="background: url(../modules/mod_test/tmpl/img/new/1.jpg); width:100%;">1</div>
+    <div class="page2" style="background: url(../modules/mod_test/tmpl/img/new/2.jpg); width:100%;">2</div>
+    <div class="page3" style="background: url(../modules/mod_test/tmpl/img/new/3.jpg); width:100%;">3</div>
+    <div class="page4" style="background: url(../modules/mod_test/tmpl/img/new/4.jpg); width:100%;">4</div>
+</div>
+
+
+<button class="test-img">click to change</button>
+
+$(document).ready(function() {
+    $('.test-img').click(function() {                           
+        var lookbook2 = '<div class="page1" style="background: url(file:///C|/Aarthur/Dropbox/Greybox/images/book2/new1.jpg); width:100%;">5</div>'+'<div class="page1" style="background: url(file:///C|/Aarthur/Dropbox/Greybox/images/book2/new2.jpg); width:100%;">6</div>';
+        $('#book1').html(lookbook2);
+    });
+});
+
+</body>
+</html>

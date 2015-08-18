@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://getbootstrap.com/2.3.2/examples/sticky-footer.html -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Questionair · GreyBox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Questionair</title>
+
+    <!-- -for question -->
+    <script src="js/questionair2.6.js"></script>
+
+  <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS -->
+    <!--link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet"-->
+    <style type="text/css">
+        /* Sticky footer styles
+              -------------------------------------------------- */
+
+        html, body {
+            height: 100%; /* The html and body elements cannot have any padding or margin. */
+            background-color: #671c58;
+            color: white;
+        }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            /* Negative indent footer by it's height */
+            margin: 0 auto -160px;
+        }
+
+        /* Set the fixed height of the footer here */
+        #push, #footer {
+            height: 160px;
+        }
+
+        #footer {
+            background-color: #671c58;
+        }
+
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+            #footer {
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        /* Custom page CSS
+              -------------------------------------------------- */
+        /* Not required for template or sticky footer method. */
+
+        .container {
+            width: auto;
+            max-width: 680px;
+        }
+
+        .container .credit {
+            margin: 20px 0;
+        }
+
+        .vertical-center {
+            min-height: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* First, lets make this reusable,
+        not component specific (like 'buttonBox'),
+        the helper classes will be:
+        .cols-bottom, and cols-middle*/
+
+        [class*='cols-'].row > * {
+            float: none;
+            position: relative;
+            display: inline-block;
+            /* old ie fixes */
+            *zoom: 1;
+            *display: inline;
+        }
+
+        .row.cols-bottom > * {
+            vertical-align: bottom;
+        }
+
+        .row.cols-middle > * {
+            vertical-align: middle;
+        }
+
+        /* Old/bad Example: Absolute Styling */
+
+        .row {
+            position: relative;
+        }
+
+        /* try3 */
+
+        /* try3 */
+
+
+    </style>
+    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed"
+          href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+    <style id="style-1-cropbar-clipper">
+        /* Copyright 2014 Evernote Corporation. All rights reserved. */
+        .en-markup-crop-options {
+            top: 18px !important;
+            left: 50% !important;
+            margin-left: -100px !important;
+            width: 200px !important;
+            border: 2px rgba(255, 255, 255, .38) solid !important;
+            border-radius: 4px !important;
+        }
+
+        .en-markup-crop-options div div:first-of-type {
+            margin-left: 0px !important;
+        }
+    </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+  //ajax change the div by get data from server:
+var numberOfPage=0;
+
+ //txt to html method:
+ function txtToHtmlFunction(txt){
+	 return "tested:!!"+txt;
+ }
+	
+	//var urlTest1="1.html";
+$(document).ready(function(){
+	
+    $("#clickTest").click(function(){
+		
+		//url changed method
+		 numberOfPage++;
+		 
+		document.getElementById('pageNumber').innerHTML = clicks;
+		var urlForData= ""+numberOfPage+".txt";
+		
+        $.ajax({url: urlForData, 
+		dataType: "text",
+		success: function(result){
+			
+			//var txtToHtml= "cc"+result;
+			 var txtToHtml=    txtToHtmlFunction(result);
+			
+			//change the number sign
+			$("#pageNumber").html(numberOfPage);
+			//show the content in the main body
+            $("#questions-main-body").html(txtToHtml );
+        }});
+    });
+});
+</script>
+</head>
+
+<body  >
+
+
+<!-- Part 1: Wrap all page content here -->
+<div id="wrap">
+
+
+    <!-- Begin page content -->
+    <div class="container-fluid">
+        <!-- heading -->
+        <div>
+
+            <!-- the first line -->
+            <div id="thefirstline" class="row">
+                <div class="col-xs-4" text-left>
+                    <i class="fa fa-home fa-1x"></i>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <strong>Questionair</strong>
+                </div>
+
+                <div id="pageNumber" class="col-xs-4 text-right">
+                    0
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <!-- Main body for questions and pictures:-->
+        <div id="questions-main-body">
+            <p class="lead">Please answer the questions by click "right" or "left" marks on the bottom.</p>
+
+            <p>This is a questionair for your health.</p>
+        </div>
+        <!-- number marks as questions going:-->
+
+
+    </div>
+
+
+    <div id="push"></div>
+
+
+</div>
+
+
+<div id="footer">
+
+    <div class="  profile-about">
+        <img src="source/img/sliderbaronthebottom-small.png" class="img-responsive center-block" alt="slider">
+    </div>
+
+    <div class="container">
+
+
+        <!-- bottom click area-->
+        <div class="row bottom-space">
+
+
+            <!--tow marks that selected by user on the bottom-->
+
+            <!--div class="bottom-panel"-->
+            <div class="  center-block">
+                <div class="col-xs-4 col-xs-offset-2">
+                    <div id="clickTest" class="icon-left-side"  ><em class="fa fa-check fa-4x"></em></div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="icon-right-side"><i class="fa fa-times fa-4x"></i></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Le javascript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="faster/jquery.js"></script>
+    <script src="faster/bootstrap-transition.js"></script>
+    <script src="faster/bootstrap-alert.js"></script>
+    <script src="faster/bootstrap-modal.js"></script>
+    <script src="faster/bootstrap-dropdown.js"></script>
+    <script src="faster/bootstrap-scrollspy.js"></script>
+    <script src="faster/bootstrap-tab.js"></script>
+    <script src="faster/bootstrap-tooltip.js"></script>
+    <script src="faster/bootstrap-popover.js"></script>
+    <script src="faster/bootstrap-button.js"></script>
+    <script src="faster/bootstrap-collapse.js"></script>
+    <script src="faster/bootstrap-carousel.js"></script>
+    <script src="faster/bootstrap-typeahead.js"></script>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+</body>
+</html>

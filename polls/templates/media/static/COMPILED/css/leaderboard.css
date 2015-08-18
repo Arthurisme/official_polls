@@ -1,0 +1,223 @@
+/* 
+CSS for the leaderboard page 
+Created 7/30/2015
+*/
+/*  Styles (LESS) for Greybox Health Web Portal
+    variables.less - used accross other .less files (which imports variables.less)
+    Created: 3/8/2015
+*/
+/* COLORS ============================================================================================= */
+/* Greybox logo colors */
+/* UI element colors */
+/* FONTS ============================================================================================== */
+@font-face {
+  font-family: 'Flama';
+  src: url('/static/fonts/Flama-Book.eot');
+  src: url('/static/fonts/Flama-Book.woff') format('woff'), url('/static/fonts/Flama-Book.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Flama-Bold';
+  src: url('/static/fonts/Flama-Bold.eot');
+  src: url('/static/fonts/Flama-Bold.woff') format('woff'), url('/static/fonts/Flama-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Flama-Ultralight';
+  src: url('/static/fonts/Flama-Ultralight.eot');
+  src: url('/static/fonts/Flama-Ultralight.woff') format('woff'), url('/static/fonts/Flama-Ultralight.otf') format('opentype');
+}
+@font-face {
+  font-family: 'ALaMain';
+  src: url('/static/fonts/ALaMain.eot');
+  src: url('/static/fonts/ALaMain.woff') format('woff'), url('/static/fonts/ALaMain.ttf') format('truetype');
+}
+/*  Styles (LESS) for Greybox Health Web Portal
+    mixins.less - used accross other .less files (which imports mixins.less)
+    Created: 3/8/2015
+*/
+/* UI ELEMENTS ======================================================================================== */
+/* LAYOUT ============================================================================================= */
+/* TEXT =============================================================================================== */
+/* SPRITES ============================================================================================ */
+/* COSMETIC =========================================================================================== */
+#leaderboard-header .icon {
+  display: inline-block;
+  max-width: 120px;
+  background: url('/static/img/sprite_120.png');
+  background-repeat: no-repeat;
+  background-size: 2500%;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: 100% 0%;
+  width: 100%;
+  position: relative;
+}
+#leaderboard-header .icon:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* initial ratio of 1:1*/
+}
+#leaderboard-controls .button {
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+}
+#leaderboard-content {
+  margin: 25px 0px;
+}
+#leaderboard-content .table-responsive .lead-table {
+  width: 100%;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th {
+  cursor: pointer;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #dbdbdb;
+  color: #414042;
+  font-family: 'Flama', sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(1):hover,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(1).headerSortUp,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(1).headerSortDown {
+  border-bottom-color: #414042;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(2):hover,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(2).headerSortUp,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(2).headerSortDown {
+  border-bottom-color: #313090;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(2) .icon {
+  display: inline-block;
+  max-width: 120px;
+  background: url('/static/img/sprite_120.png');
+  background-repeat: no-repeat;
+  background-size: 2500%;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: 0% 0%;
+  width: 100%;
+  position: relative;
+  width: 25px;
+  height: 25px;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(2) .icon:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* initial ratio of 1:1*/
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(3):hover,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(3).headerSortUp,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(3).headerSortDown {
+  border-bottom-color: #e60080;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(3) .icon {
+  display: inline-block;
+  max-width: 120px;
+  background: url('/static/img/sprite_120.png');
+  background-repeat: no-repeat;
+  background-size: 2500%;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: 4.16666667% 0%;
+  width: 100%;
+  position: relative;
+  width: 25px;
+  height: 25px;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(3) .icon:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* initial ratio of 1:1*/
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(4):hover,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(4).headerSortUp,
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(4).headerSortDown {
+  border-bottom-color: #27a655;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(4) .icon {
+  display: inline-block;
+  max-width: 120px;
+  background: url('/static/img/sprite_120.png');
+  background-repeat: no-repeat;
+  background-size: 2500%;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: 54.16666667% 0%;
+  width: 100%;
+  position: relative;
+  width: 25px;
+  height: 25px;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th:nth-child(4) .icon:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* initial ratio of 1:1*/
+}
+#leaderboard-content .table-responsive .lead-table thead tr th .icon {
+  vertical-align: middle;
+}
+#leaderboard-content .table-responsive .lead-table thead tr th .text {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 10px 0px 10px;
+}
+#leaderboard-content .table-responsive .lead-table tbody td {
+  white-space: nowrap;
+  color: #414042;
+  font-family: 'Flama-Bold', sans-serif;
+  font-size: 30px;
+}
+#leaderboard-content .table-responsive .lead-table tbody td #profile-picture {
+  overflow: hidden;
+  -webkit-border-top-left-radius: 100px;
+  -webkit-border-top-right-radius: 100px;
+  -webkit-border-bottom-right-radius: 100px;
+  -webkit-border-bottom-left-radius: 100px;
+  -moz-border-radius-topleft: 100px;
+  -moz-border-radius-topright: 100px;
+  -moz-border-radius-bottomright: 100px;
+  -moz-border-radius-bottomleft: 100px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  position: relative;
+  border: 1px solid #dbdbdb;
+  vertical-align: middle;
+}
+#leaderboard-content .table-responsive .lead-table tbody td #profile-picture img {
+  height: 100%;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+}
+#leaderboard-content .table-responsive .lead-table tbody td a {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px;
+}
+#leaderboard-content .table-responsive .lead-table tbody td:nth-child(1) {
+  color: #414042;
+  font-family: 'Flama-Ultralight', sans-serif;
+  font-size: 26px;
+}
+#leaderboard-content .table-responsive .lead-table tr th,
+#leaderboard-content .table-responsive .lead-table tr td {
+  padding: 10px;
+}
+#leaderboard-content .table-responsive .lead-table tr:nth-child(even) {
+  background-color: #f3f3f3;
+}

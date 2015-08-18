@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load compile_static %}
+
+{% block title %}Clan{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}{% compile "css/leaderboard.less" %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<section class="col-xs-12 header-container" id="leaderboard-header">
+    <h2 class="header">Leaderboard</h2>
+    <div class="icon-container"><span class="vertical-align"></span><span class="icon"></span></div>
+</section>
+
+<!-- Controls -->
+<section class="col-xs-12" id="leaderboard-controls">
+    <div class="button active" id="today">Aujourd'hui</div>
+    <div class="button" id="week">7 derniers jours</div>
+    <div class="button" id="month">30 derniers jours</div>
+</section>
+
+<!-- Tables -->
+<section class="col-xs-12" id ="leaderboard-content">
+    <!--
+    <p>{{clan.leader}}</p>
+    <p>{{clan.name}}</p>
+    <p>{{clan.pGroup}}</p>
+    <p>{{clan.numMember}}</p>
+    <p>{{clan.score}}</p>
+    <p>{{clan.private}}</p>
+    <p>{{c_member}}</p>-->
+
+    <!-- Today -->
+    <div class="table-responsive active" id="lead-today">
+        {% include "table.html" with lead_list=lead_list_day %}
+    </div><!-- End -->
+
+    <!-- Weekly -->
+    <div class="table-responsive hidden" id="lead-week">
+        {% include "table.html" with lead_list=lead_list_week %}
+    </div><!-- End -->
+
+    <!-- Monthly -->
+    <div class="table-responsive hidden" id="lead-month">
+        {% include "table.html" with lead_list=lead_list_month %}
+    </div><!-- End -->
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/libraries/tablesorter.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/leaderboard.js' %}"></script>
+{% endblock %}

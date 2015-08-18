@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Liste des patients{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% block content %}
+    <section class="col-xs-12">
+        <h2 class="sub-header">Leaderboard</h2>
+        <div class="table-responsive">
+            <table class="table table-striped tablesorter" id="LeadTable">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Nombre de pas</th>
+                    <th>Temps de jeu</th>
+                    <th>Total Bolts</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for p in lead_list %}
+                <tr>
+                    <td><a href="/staff_patient_profile/{{p.id}}/">{{ p.Name }}</a></td>
+                    <td>{{ p.Steps }}</td>
+                    <td>{{ p.Time }}</td>
+                    <td>{{ p.Bolts }}</td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/libraries/tablesorter.min.js' %}"></script>
+<script>
+    var lead = "{{ lead_list }}"
+    console.log("Lead: " + lead)
+</script>
+<script>
+    $("#LeadTable").tablesorter();
+</script> 
+{% endblock %}

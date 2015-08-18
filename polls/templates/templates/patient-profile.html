@@ -1,0 +1,496 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load compile_static %}
+
+{% block title %}{{ client.firstName }} {{ client.lastName }}{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}{% compile "css/dashboard.less" %}" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}{% compile "css/profile-pic.less" %}" />
+{% endblock %}
+
+{% block content %}
+    <!-- Client Profile Section -->
+    <section class = "sub-content-container" id="profile-container">
+        <div class = "widget-container large" id = "activ-summary-widget">
+            <h2 class = "widget-title">{{ client.firstName }} {{ client.lastName }}</h2>
+            <div id = "profile-picture">
+                <img src="/static/img/user.png" alt="Profile Picture"/>
+            </div>
+            <div id = "profile-info"></div>
+        </div>
+    </section>
+
+    <!-- Category Select Section -->
+    <section class = "sub-content-container three" id="category-group-container">
+        <div class = "category-container selected" id = "today-category">
+            <div class = "large-icon" id ="one-icon"><!-- Program Icon --></div>
+            <div class = "category-title"><span>Aujourd'hui</span></div>
+        </div>
+        <div class = "category-container unclicked" id = "dashboard-category">
+            <div class = "large-icon" id ="two-icon"><!-- Dashboard Icon --></div>
+            <div class = "category-title"><span>Mon tableau de bord</span></div>
+        </div>
+        <div class = "category-container unclicked" id = "objectives-category">
+            <div class = "large-icon" id ="three-icon"><!-- Objectives Icon --></div>
+            <div class = "category-title"><span>Mon Programme</span></div>
+        </div>
+    </section>
+
+    <!-- Today Tab -->
+    <section class="tab-container" id="today-tab">
+        <section class = "sub-content-container" id ="activ-today-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header" id="activ-today-header">Mes objectifs d'aujourd'hui</h1>
+            </div>
+            <div class = "widget-container large" id= "activ-today-prog-widget">
+
+                <div class = "fraction-info">
+                    <span class = "hor-space-adjust">
+                    <div class = "fraction">
+                        <span class="numerator"></span>
+                        <span class="denominator"></span>
+                    </div>
+                    </span>
+                    <h2 class = "widget-title">nombre de pas</h2>
+                </div>
+
+                <div class ="radial-chart" id = "activ-today-progress"><!-- Chart -->
+                    <div class = "chart-center-container">
+                        <div id = "vertical-adjust"><!-- for vertical alignment --></div>
+                        <div class = "icon hidden"><!-- Icon --></div>
+                        <div class = "value hidden" id = "percent"><!-- Number --></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class = "widget-container large" id= "games-today-prog-widget">
+                <div class = "fraction-info">
+                    <span class = "hor-space-adjust">
+                    <div class = "fraction">
+                        <span class="numerator"></span>
+                        <span class="denominator"></span>
+                    </div>
+                    </span>
+                    <h2 class = "widget-title">minutes de jeu</h2>
+                </div>
+                <div class ="radial-chart" id = "games-today-progress"><!-- Chart -->
+                    <div class = "chart-center-container">
+                        <div id = "vertical-adjust"><!-- for vertical alignment --></div>
+                        <div class = "icon hidden"><!-- Icon --></div>
+                        <div class = "value hidden" id = "percent"><!-- Number --></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class = "sub-content-container" id ="today-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header">Conseils rapides</h1>
+            </div>
+            <div class = "widget-container large" id= "tip-widget">
+                <div class ="body-text">
+                </div>
+            </div>
+        </section>
+
+        <section class = "sub-content-container hidden" id ="feeling-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header">Comment sentez-vous aujourd'hui?</h1>
+            </div>
+            <div class = "widget-container small" id= "feeling-widget">
+                <div class ="body-text">
+
+                </div>
+            </div>
+        </section>
+
+        <section class = "sub-content-container hidden" id ="contact-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header">Mon professionel de sant&#233;</h1>
+            </div>
+            <div class = "widget-container small" id= "contact-widget">
+                <div class ="body-text">
+
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Dashboard Tab -->
+    <section class="tab-container hidden" id="dashboard-tab">
+        <!-- Activity Section -->
+
+        <section class = "sub-content-container" id ="activity-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header" id="activity-header">Mes Activit&#233;s</h1>
+            </div>
+            <div class = "widget-container small" id= "bolt-prog-widget">
+                <h2 class = "widget-title">Bolts obtenus aujourd'hui</h2>
+                <div class = "value" id = "number"><!-- Number --></div>
+                <div class ="radial-chart" id = "activity-progress"><!-- Chart -->
+                    <div class = "chart-center-container">
+                        <div id = "vertical-adjust"><!-- for vertical alignment --></div>
+                        <div class = "icon"><!-- Icon --></div>
+                    </div>
+                </div>
+                <div class = "value" id = "percent"><!-- Number --></div>
+            </div>
+            <div class = "widget-container standard" id = "activ-summary-widget">
+                <h2 class = "widget-title">Mes Bolts</h2>
+                    <div class="chart-container">
+                        <div class = "button-container">
+                            <div class = "button left disabled"> < </div>
+                            <div class = "button right disabled"> >  </div>
+                        </div>
+                        <canvas id="activ-summary-chart"><!-- Graph --></canvas>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section class = "sub-content-container" id ="games-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header" id="games-header">Mes Jeux</h1>
+            </div>
+            <div class = "widget-container small" id= "games-prog-widget">
+                <h2 class = "widget-title">Bolts obtenus aujourd'hui</h2>
+                <div class = "value" id = "number"><!-- Number --></div>
+                <div class ="radial-chart" id = "games-progress"><!-- Chart -->
+                    <div class = "chart-center-container">
+                        <div id = "vertical-adjust"><!-- for vertical alignment --></div>
+                        <div class = "icon"><!-- Icon --></div>
+                    </div>
+                </div>
+                <div class = "value" id = "percent"><!-- Number --></div>
+            </div>
+            <div class = "widget-container standard" id = "games-summary-widget">
+                <h2 class = "widget-title">Mes Bolts</h2>
+                    <div class="chart-container">
+                        <div class = "button-container">
+                            <div class = "button left disabled"> < </div>
+                            <div class = "button right disabled"> > </div>
+                         </div>
+                        <canvas id="games-summary-chart"><!-- Graph --></canvas>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Health Section -->
+        <section class = "sub-content-container" id ="health-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header" id="health-header">Ma Sant&#233;</h1>
+            </div>
+            <div class = "widget-container small" id= "weight-prog-widget">
+                <h2 class = "widget-title">Derni&#232;re pes&#233;e</h2>
+                <div class = "icon"><!-- Icon --></div>
+                <div class = "value"><!-- Number --></div>
+            </div>
+            <div class = "widget-container standard" id = "weight-summary-widget">
+                <h2 class = "widget-title">Mes pes&#233;es (kg)</h2>
+                    <div class="chart-container">
+                        <div class = "button-container">
+                            <div class = "button left disabled"> < </div>
+                            <div class = "button right disabled"> >  </div>
+                        </div>
+                        <canvas id="weight-summary-chart"><!-- Graph --></canvas>
+                    </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Objectives Tab -->
+    <section class="tab-container hidden" id="objectives-tab">
+        <section class = "sub-content-container" id ="program-summary-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header">Programme - Infos</h1>
+            </div>
+            <div class = "widget-container small" id = "program-name-widget">
+                <h2 class = "widget-title">Programme</h2>
+                <div class = "body-text">
+                    <div class = "vertical-adjust"><!-- for vertical alignment --></div>
+                    <span>?</span>
+                </div>
+            </div>
+            <div class = "widget-container small" id = "program-date-widget">
+                <h2 class = "widget-title">Date de d&#233;but</h2>
+                <div class = "body-text">
+                    <span class="top">
+                        <span class = "day">?</span>
+                    </span>
+                    <span class = "month"></span>
+                    <span class = "year">non-d&#233;finie</span>
+                </div>
+            </div>
+            <div class = "widget-container small" id = "program-duration-widget">
+                <h2 class = "widget-title">Dur&#233;e</h2>
+                <div class = "body-text">
+                    <span class="top">
+                        <span class = "days">?</span>
+                    </span>
+                    <span class = "bottom">Jours</span>
+                </div>
+            </div>
+        </section>
+        <section class = "sub-content-container" id ="objectives-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header" id="objectives-header">Mon programme - Activit&#233;s</h1>
+            </div>
+            <div class = "widget-container large" id = "objective-summary-widget">
+                <h2 class = "widget-title">Nombre de pas</h2>
+                    <div class = "button-container hidden">
+                        <div class = "button left disabled">  <  </div>
+                        <div class = "button right disabled">  >   </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="objectives-summary-chart"><!-- Graph --></canvas>
+                    </div>
+            </div>
+        </section>
+        <section class = "sub-content-container" id ="games-obj-container">
+            <div class ="sub-content-head">
+                <div class ="sub-content-icon"><span class="icon"><!-- icon --></span></div>
+                <h1 class="page-header">Mon programme - Jeux</h1>
+            </div>
+            <div class = "widget-container large" id = "games-obj-widget">
+                <h2 class = "widget-title">Minutes de jeu</h2>
+                    <div class = "button-container hidden">
+                        <div class = "button left disabled">  <  </div>
+                        <div class = "button right disabled">  >   </div>
+                    </div>
+                     <div class="chart-container">
+                         <canvas class="line-chart"><!-- Graph --></canvas>
+                     </div>
+            </div>
+        </section>
+    </section>
+
+    <div class="overlay-wrap hidden" id="choose-img-overlay">
+        <div class="close-overlay"></div>
+        <div class="overlay-screen">
+            <span class="vertical-align"></span>
+            <section class="choose-img-container">
+                <div class="img-container">
+                    <span class="ellipsis hidden">
+                        <span class="one">.</span><span class="two">.</span><span class="three">.</span>
+                    </span>
+                    <span class="image"></span>
+                </div>
+                <div class="buttons">
+                    <div class="button" id="choose">Choisir une autre image</div>
+                    <div class="button" id="zoom-in"> + </div>
+                    <div class="button" id="zoom-out"> &#x2212; </div>
+                    <div class="button" id="cancel">Annuler</div>
+                    <div class="button" id="save">Sauvegarder</div>
+                <input class ="hidden" id="file" type="file" accept="image/*">
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+
+//        $.ajax({
+//            url: '127.0.0.1:8000/hello',
+//            type: 'get', //this is the default though, you don't actually need to always mention it
+//            success: test() {
+//                alert(data);
+//            },
+//            failure: function(data) {
+//                alert('Got an error dude');
+//            }
+//        });
+
+        var patient_name            = "{{ client.firstName }}"+" {{ client.lastName }}"
+        var patient_id              = "{{ client.id }}"
+
+        var stepsData = {
+            dataType    : "steps",
+            datesString : "{{ walking_date }}",
+            dates       : [],
+            values      : "{{ walking_step }}",
+            today       : 0
+        };
+
+        var fastWalkData = {
+            dataType    : "steps",
+            datesString : "{{ fastWalk_date }}",
+            dates       : [],
+            values      : "{{ fastWalk_step }}",
+            today       : 0
+        };
+
+        var runningData = {
+            dataType    : "steps",
+            datesString : "{{ running_date }}",
+            dates       : [],
+            values      : "{{ running_step }}",
+            today       : 0
+        };
+
+        var stairsData = {
+            dataType    : "steps",
+            datesString : "{{ stairs_date }}",
+            dates       : [],
+            values      : "{{ stairs_step }}",
+            today       : 0
+        };
+
+        var weightData ={
+            dataType    : "weight",
+            datesString : "{{ weight_date }}",
+            dates       : [],
+            values      : "{{ weight }}",
+            today       : 0
+        };
+
+        var pianoData ={
+            dataType    : "piano",
+            datesString : "{{ pianoSteps_date }}",
+            dates       : [],
+            values      : "{{ pianoSteps_activeTime }}",
+            today       : 0
+        };
+
+        var absData ={
+            dataType    : "abs",
+            datesString : "{{ absZapper_date }}",
+            dates       : [],
+            values      : "{{ absZapper_activeTime }}",
+            today       : 0
+        };
+
+        var squatData ={
+            dataType    : "squat",
+            datesString : "{{ squatMe_date }}",
+            dates       : [],
+            values      : "{{ squatMe_activeTime }}",
+            today       : 0
+        };
+
+        var danceData ={
+            dataType    : "dance",
+            datesString : "{{ justDance_date }}",
+            dates       : [],
+            values      : "{{ justDance_activeTime }}",
+            today       : 0
+        };
+
+        var battleData ={
+            dataType    : "battle",
+            datesString : "{{ battleRun_date }}",
+            dates       : [],
+            values      : "{{ battleRun_activeTime }}",
+            today       : 0
+        };
+
+        var walking_activeTime      = "{{ walking_activeTime }}"
+        var walking_step            = "{{ walking_step }}"
+        var walking_date            = "{{ walking_date }}"
+
+        var fastWalk_step            = "{{ fastWalk_step }}"
+        var fastWalk_date            = "{{ fastWalk_date }}"
+
+        var running_step            = "{{ running_step }}"
+        var running_date            = "{{ running_date }}"
+
+        var stairs_step            = "{{ stairs_step }}"
+        var stairs_date            = "{{ stairs_date }}"
+
+        var absZapper_activeTime    ="{{ absZapper_activeTime }}"
+        var absZapper_date          ="{{ absZapper_date }}"
+        var absZapper_step          ="{{ absZapper_step }}"
+
+        var pianoSteps_activeTime   ="{{ pianoSteps_activeTime }}"
+        var pianoSteps_date         ="{{ pianoSteps_date }}"
+        var pianoSteps_step         ="{{ pianoSteps_step }}"
+
+        var squatMe_activeTime      ="{{ squatMe_activeTime }}"
+        var squatMe_date            ="{{ squatMe_date }}"
+        var squatMe_step            ="{{ squatMe_step }}"
+
+        var justDance_activeTime    ="{{ justDance_activeTime }}"
+        var justDance_date          ="{{ justDance_date }}"
+        var justDance_step          ="{{ justDance_step }}"
+
+        var battleRun_activeTime    ="{{ battleRun_activeTime }}"
+        var battleRun_date          ="{{ battleRun_date }}"
+        var battleRun_step          ="{{ battleRun_step }}"
+
+        var weight                  ="{{ weight }}"
+        var weight_date             ="{{ weight_date }}"
+
+        var program_walk            ={{ program_walk }}
+        var program_fastWalk        ={{ program_fastWalk }}
+        var program_running         ={{ program_running }}
+        var program_stairs          ={{ program_stairs }}
+        var program_absZapper       ={{ program_absZapper }}
+        var program_pianoSteps      ={{ program_pianoSteps }}
+        var program_squatMe         ={{ program_squatMe }}
+        var program_justDance       ={{ program_justDance }}
+        var program_battleRun       ={{ program_battleRun }}
+        var program_startDate       ="{{ program_startDate }}"
+        var program_name            ="{{ program_name }}"
+        var tip                     ="{{ tips }}"
+
+        console.log("\npatient_name: " + patient_name)
+        console.log("\npatient_id: " + patient_id)
+        console.log("\nwalking_activeTime: " + walking_activeTime)
+        console.log("\nwalking_step: " + walking_step)
+        console.log("\nwalking_date: " + walking_date)
+        console.log("\nfastWalk_step: " + fastWalk_step)
+        console.log("\nfastWalk_date: " + fastWalk_date)
+        console.log("\nrunning_step: " + running_step)
+        console.log("\nrunning_date: " + running_date)
+        console.log("\nstairs_step: " + stairs_step)
+        console.log("\nstairs_date: " + stairs_date)
+        console.log("\nabsZapper_activeTime: " + absZapper_activeTime)
+        console.log("\nabsZapper_date: " + absZapper_date)
+        console.log("\nabsZapper_step: " + absZapper_step)
+        console.log("\npianoSteps_activeTime: " + pianoSteps_activeTime)
+        console.log("\npianoSteps_date: " + pianoSteps_date)
+        console.log("\npianoSteps_step: " + pianoSteps_step)
+        console.log("\nsquatMe_activeTime: " + squatMe_activeTime)
+        console.log("\nsquatMe_date: " + squatMe_date)
+        console.log("\nsquatMe_step : " + squatMe_step )
+        console.log("\njustDance_activeTime: " + justDance_activeTime)
+        console.log("\njustDance_date: " + justDance_date)
+        console.log("\njustDance_step: " + justDance_step)
+        console.log("\nbattleRun_activeTime: " + battleRun_activeTime)
+        console.log("\njustDance_date: " + justDance_date)
+        console.log("\njustDance_step: " + justDance_step)
+        console.log("\nweight: " + weight)
+        console.log("\nweight_date: " + weight_date)
+        console.log("\nprogram_walk: " + program_walk)
+        console.log("\program_fastWalk: " + program_fastWalk)
+        console.log("\program_running: " + program_running)
+        console.log("\program_stairs: " + program_stairs)
+        console.log("\nprogram_absZapper: " + program_absZapper)
+        console.log("\nprogram_pianoSteps: " + program_pianoSteps)
+        console.log("\nprogram_squatMe: " + program_squatMe)
+        console.log("\nprogram_justDance: " + program_justDance)
+        console.log("\nprogram_battleRun: " + program_battleRun)
+        console.log("\nprogram_startDate: " + program_startDate)
+        console.log("\nprogram_name: " + program_name)
+        console.log("\ntips: " + tip)
+    </script>
+    <script type="text/javascript" src="{% static 'js/libraries/chart.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/libraries/circle-progress.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+    <script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/libraries/jquery.mousewheel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/libraries/jquery.cropbox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/profile-pic.js' %}"></script>
+{% endblock %}

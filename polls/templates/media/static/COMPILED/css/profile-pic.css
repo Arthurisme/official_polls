@@ -1,0 +1,221 @@
+/*  Styles (LESS) for Greybox Health Web Portal
+    variables.less - used accross other .less files (which imports variables.less)
+    Created: 3/8/2015
+*/
+/* COLORS ============================================================================================= */
+/* Greybox logo colors */
+/* UI element colors */
+/* FONTS ============================================================================================== */
+@font-face {
+  font-family: 'Flama';
+  src: url('/static/fonts/Flama-Book.eot');
+  src: url('/static/fonts/Flama-Book.woff') format('woff'), url('/static/fonts/Flama-Book.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Flama-Bold';
+  src: url('/static/fonts/Flama-Bold.eot');
+  src: url('/static/fonts/Flama-Bold.woff') format('woff'), url('/static/fonts/Flama-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Flama-Ultralight';
+  src: url('/static/fonts/Flama-Ultralight.eot');
+  src: url('/static/fonts/Flama-Ultralight.woff') format('woff'), url('/static/fonts/Flama-Ultralight.otf') format('opentype');
+}
+@font-face {
+  font-family: 'ALaMain';
+  src: url('/static/fonts/ALaMain.eot');
+  src: url('/static/fonts/ALaMain.woff') format('woff'), url('/static/fonts/ALaMain.ttf') format('truetype');
+}
+/*  Styles (LESS) for Greybox Health Web Portal
+    mixins.less - used accross other .less files (which imports mixins.less)
+    Created: 3/8/2015
+*/
+/* UI ELEMENTS ======================================================================================== */
+/* LAYOUT ============================================================================================= */
+/* TEXT =============================================================================================== */
+/* SPRITES ============================================================================================ */
+/* COSMETIC =========================================================================================== */
+.choose-img-container {
+  width: 100%;
+  max-width: 500px;
+  min-width: 300px;
+  display: inline-block;
+  padding: 25px;
+  vertical-align: middle;
+  white-space: normal;
+}
+.choose-img-container .img-container {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+  -webkit-border-top-left-radius: 400px;
+  -webkit-border-top-right-radius: 400px;
+  -webkit-border-bottom-right-radius: 400px;
+  -webkit-border-bottom-left-radius: 400px;
+  -moz-border-radius-topleft: 400px;
+  -moz-border-radius-topright: 400px;
+  -moz-border-radius-bottomright: 400px;
+  -moz-border-radius-bottomleft: 400px;
+  border-top-left-radius: 400px;
+  border-top-right-radius: 400px;
+  border-bottom-right-radius: 400px;
+  border-bottom-left-radius: 400px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 25px;
+  position: relative;
+}
+.choose-img-container .img-container .ellipsis {
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f8f8f8;
+  font-size: 95px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.choose-img-container .img-container .image {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  color: transparent;
+}
+.choose-img-container .button {
+  font-size: 18px;
+}
+/* animated "..." for loading */
+.ellipsis .one {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.0s;
+  animation: dot 1.3s infinite;
+  animation-delay: 0.0s;
+}
+.ellipsis .two {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation: dot 1.3s infinite;
+  animation-delay: 0.2s;
+}
+.ellipsis .three {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.3s;
+  animation: dot 1.3s infinite;
+  animation-delay: 0.3s;
+}
+@-webkit-keyframes dot {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes dot {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* new solution */
+.cropFrame {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.cropImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: move;
+  max-width: none;
+}
+.cropControls {
+  background: #000;
+  width: 100%;
+  height: 26px;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transition: opacity .25s linear;
+  -moz-transition: opacity .25s linear;
+  -webkit-transition: opacity .25s linear;
+  t-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.cropFrame.hover .cropControls {
+  opacity: .55;
+  filter: alpha(opacity=55);
+}
+.cropControls span {
+  display: block;
+  float: left;
+  color: #fff;
+  font-size: 11px;
+  margin: 7px 0 0 5px;
+}
+.cropZoomIn,
+.cropZoomOut {
+  display: block;
+  float: right;
+  margin: 4px 4px 0 0;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+  line-height: 16px;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cropZoomIn::after,
+.cropZoomIn .after {
+  content: "+";
+  display: block;
+  text-align: center;
+}
+.cropZoomOut::after,
+.cropZoomOut .after {
+  content: "-";
+  display: block;
+  text-align: center;
+}
+/*IE8*/
+.cropZoomIn:after,
+.cropZoomIn .after {
+  content: "+";
+  display: block;
+  text-align: center;
+}
+/*IE8*/
+.cropZoomOut:after,
+.cropZoomOut .after {
+  content: "-";
+  display: block;
+  text-align: center;
+}

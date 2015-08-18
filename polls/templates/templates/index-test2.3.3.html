@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+
+
+
+</head>
+
+<body onload="changeBlock()">
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!--<div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard <small>Statistics Overview</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div>
+                </div>-->
+
+                <!--div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
+                        </div>
+                    </div>
+                </div>-->
+
+ 
+         
+    
+    <div class="  col-md-12">
+         <div class="panel panel-primary">
+                            
+                <div class="top-panel">
+                    <div id="pageNumber" class="top-number">1</div> 
+                    <div class="circle"></div>
+                </div>
+                    
+                <div class="panel-bg">
+                     <div class="row">
+                          <div >
+                          <center>
+                               <div id="textdemo" >Demo text for first page without using JS yet.
+                               </div>
+                               </center>
+                          </div>
+                     </div>
+                </div>
+                            
+                <div class="row bottom-space">
+                     <div class="bottom-panel">
+                          <div class="col-xs-4 col-xs-offset-2">    
+                              <div class="icon-left-side" onclick="changeBlock()"><i class="fa fa-check-circle fa-4x"></i></div>
+                          </div>
+                          <div class="col-xs-4">
+                               <div class="icon-right-side"><i class="fa fa-times-circle fa-4x"></i></div>
+                          </div>
+                     </div>
+                </div>
+                        
+        </div>
+    </div> 
+                    
+   
+    
+    <!--<div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-support fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">13</div>
+                                        <div>Support Tickets!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>-->
+               
+ 
+                
+                <!-- /.row -->
+
+                
+                
+                
+                <div class="row"> </div>
+                <!-- /.row -->                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    
+  <!-- js for this page -->
+   <!-- radio select -->
+    <!-- 2 js -->
+     
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+    
+     <!-- jQuery -->
+    <script src="js/questionair.js"></script>
+    
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-39542975-1', 'dyn-web.com');
+  ga('send', 'pageview');
+</script>            
+
+<script type="text/javascript">
+// to remove from global namespace
+(function() {
+    
+    function getRadioVal(form, name) {
+        var val;
+        var radios = form.elements[name];
+        
+        for (var i=0, len=radios.length; i<len; i++) {
+            if ( radios[i].checked ) {
+                val = radios[i].value;
+                break;
+            }
+        }
+        return val;
+    }
+
+
+    document.forms['demoForm'].elements['getVal'].onclick = function() {
+        alert( 'The selected radio button\'s value is: ' + getRadioVal(this.form, 'ship') );
+    };
+    
+    
+    // disable submission of all forms on this page
+    for (var i=0, len=document.forms.length; i<len; i++) {
+        document.forms[i].onsubmit = function() { return false; };
+    }
+    
+}());
+</script>
+
+</body>
+
+</html>

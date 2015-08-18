@@ -1,0 +1,15 @@
+<!-- Side Navigation -->
+<span id="side-nav">
+    {% if user.is_staff %}
+        <li id="patient-list"><a href="/patient-list/">Liste des patients</a></li>
+        <li id="register"><a href="/register/">Enregistrer un nouveau patient</a></li>
+        <!--<li id="add-objective"><a href="http://45.55.209.237/admin/">Ajouter Objectifs</a></li>-->
+        <li id="leader_board"><a href="/leader_board/">Leaderboard</a></li>
+        <li id="feedback"><a href="/feedback/">&#192; vos commentaires</a></li>
+
+    {% else %}
+        <li id="patient-profile"><a href="/patient-profile/">Informations personnelles</a></li>
+        <li id="leader_board"><a href="/leader_board/">Leaderboard</a></li>
+        <li id="feedback"><a href="/feedback/">&#192; vos commentaires</a></li>
+    {% endif %}
+</span>

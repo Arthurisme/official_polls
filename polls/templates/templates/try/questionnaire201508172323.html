@@ -1,0 +1,10 @@
+{% if  question2t  %}
+     <p>{{  latest_question_list  }}</p>
+    <ul>
+    {% for q in question2t %}
+<li><a href="{% url 'polls:detail' question.id %}">{{ q.type_of_q }}</a></li>    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available 6.</p>
+     <p>{{  question2t  }}</p>
+{% endif %}

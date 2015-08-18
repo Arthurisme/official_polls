@@ -1,0 +1,69 @@
+/*  Styles (LESS) for Greybox Health Web Portal
+    variables.less - used accross other .less files (which imports variables.less)
+    Created: 3/8/2015
+*/
+
+/* COLORS ============================================================================================= */
+
+/* Greybox logo colors */
+@greenGB:       rgb(39,166,85);
+@pinkGB:        rgb(230,0,128);
+@yellowGB:      rgb(252,241,42);
+@lightBlueGB:   rgb(50,173,237);
+@redGB:         rgb(230,23,34);
+@blueGB:        rgb(49,48,144);
+@greyGB:        rgb(109,110,113);
+@medGreyGB:     rgb(87,88,90);
+@darkGreyGB:    rgb(65,64,66);
+@veryLightGrey: rgb(243,243,243);
+
+/* UI element colors */
+@stdText:       @darkGreyGB; //dark grey
+@primaryAccent: @lightBlueGB; // light blue
+@primaryMedium: rgb(120, 196, 221); // darker light blue
+@lightNeutral:  rgb(219, 219, 219); // light grey
+@background:    rgb(248, 248, 248); // white
+@stdLink:       @blueGB;
+@hoverLink:     @lightBlueGB;
+@disabledLink:  @lightNeutral;
+
+@achieved: #90EE90;
+
+@tabAccent1: @blueGB;
+@tabAccent2: @pinkGB;
+@tabAccent3: @greenGB;
+
+// ====================================================================================================
+/* FONTS ============================================================================================== */
+
+// for cross-browser compatibilty, use (1) EOT, (2) WOFF, and (3) OTF/TTF formats
+@font-face{
+    font-family: 'Flama';
+    src: url('../fonts/Flama-Book.eot');
+    src: url('../fonts/Flama-Book.woff') format('woff'), url('../fonts/Flama-Book.otf') format('opentype');
+}
+@font-face{
+    font-family: 'Flama-Bold';
+    src: url('../fonts/Flama-Bold.eot');
+    src: url('../fonts/Flama-Bold.woff') format('woff'), url('../fonts/Flama-Bold.otf') format('opentype');
+}
+@font-face{
+    font-family: 'Flama-Ultralight';
+    src: url('../fonts/Flama-Ultralight.eot');
+    src: url('../fonts/Flama-Ultralight.woff') format('woff'), url('../fonts/Flama-Ultralight.otf') format('opentype');
+}
+@font-face{
+    font-family: 'ALaMain';
+    src: url('../fonts/ALaMain.eot');
+    src: url('../fonts/ALaMain.woff') format('woff'), url('../fonts/ALaMain.ttf') format('truetype');
+}
+
+// ====================================================================================================
+/* FONT SIZES ========================================================================================= */
+
+@xSmall:    12;
+@small:     16;
+@medium:    18;
+@large:     24;
+@xLarge:    36;
+@xxLarge:   48;

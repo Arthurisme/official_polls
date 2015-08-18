@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+ 
+
+ <script>
+     function second() {
+		
+        if (s > 0 && (s % 60) == 0) { m += 1; s = 0; }
+        if (m > 0 && (m % 60) == 0) { h += 1; m =0; }
+        t =(h <= 9 ? "0" + h : h) + ":" + (m <= 9 ? "0" + m : m) + ":" + (s <= 9 ? "0" + s : s); 
+        document.getElementById("showtime").value = t;
+        s += 1;
+    }
+	function startclock() { se = setInterval("second()", 1000); }
+	
+     //$(document).ready(function startclock() { se = setInterval("second()", 1000); });
+    function pauseclock() { clearInterval(se); }//暂停
+    function stopclock() { clearInterval(se); m = h = s = 0; }//停止
+ </script>
+
+
+
+<head>
+<body>
+ 
+<p>Click the button to start clock</p>
+
+<button style=" color:red;  background-color:pink" onclick="startclock()">Start</button>
+
+<p>Click the button to stop clock</p>
+
+<button  style=" color:red;  background-color:pink" onclick="stopclock()">Stop</button>
+<p> </p>
+
+<input type="text" name="showtime" id="showtime" readonly=readonly style=" color:red; width:100px; border:0px;font-size:20px;" value="00:00:00">
+
+
+<script>
+ document.write(' <p>Click the button to start clock</p>                                                                                                           ');                    
+ document.write(' <button style=" color:red;  background-color:pink" onclick="startclock()">Start</button>                                                         ');  
+ document.write(' <p>Click the button to stop clock</p>                                                                                                            ');                    
+ document.write(' <button  style=" color:red;  background-color:pink" onclick="stopclock()">Stop</button>                                                          ');                                  
+ document.write(' <input type="text" name="showtime" id="showtime" readonly=readonly style=" color:red; width:100px; border:0px;font-size:20px;" value="00:00:00"> ');   
+ 
+ </script>
+
+
+<!-- Le javascript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="faster/jquery.js"></script> 
+<script src="faster/bootstrap-transition.js"></script> 
+<script src="faster/bootstrap-alert.js"></script> 
+<script src="faster/bootstrap-modal.js"></script> 
+<script src="faster/bootstrap-dropdown.js"></script> 
+<script src="faster/bootstrap-scrollspy.js"></script> 
+<script src="faster/bootstrap-tab.js"></script> 
+<script src="faster/bootstrap-tooltip.js"></script> 
+<script src="faster/bootstrap-popover.js"></script> 
+<script src="faster/bootstrap-button.js"></script> 
+<script src="faster/bootstrap-collapse.js"></script> 
+<script src="faster/bootstrap-carousel.js"></script> 
+<script src="faster/bootstrap-typeahead.js"></script> 
+
+<!-- jQuery --> 
+<script src="js/jquery.js"></script> 
+
+<!-- Bootstrap Core JavaScript --> 
+<script src="js/bootstrap.min.js"></script> 
+
+<!-- Morris Charts JavaScript --> 
+<script src="js/plugins/morris/raphael.min.js"></script> 
+<script src="js/plugins/morris/morris.min.js"></script> 
+<script src="js/plugins/morris/morris-data.js"></script>
+</body>
+</html>

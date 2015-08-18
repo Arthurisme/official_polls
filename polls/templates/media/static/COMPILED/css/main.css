@@ -1,0 +1,430 @@
+/*  Styles (LESS) for Greybox Health Web Portal
+    main.less - loaded on all pages (which extend from base.html)
+    Created: 3/8/2015
+*/
+/*  Styles (LESS) for Greybox Health Web Portal
+    variables.less - used accross other .less files (which imports variables.less)
+    Created: 3/8/2015
+*/
+/* COLORS ============================================================================================= */
+/* Greybox logo colors */
+/* UI element colors */
+/* FONTS ============================================================================================== */
+@font-face {
+  font-family: 'Flama';
+  src: url('/static/fonts/Flama-Book.eot');
+  src: url('/static/fonts/Flama-Book.woff') format('woff'), url('/static/fonts/Flama-Book.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Flama-Bold';
+  src: url('/static/fonts/Flama-Bold.eot');
+  src: url('/static/fonts/Flama-Bold.woff') format('woff'), url('/static/fonts/Flama-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Flama-Ultralight';
+  src: url('/static/fonts/Flama-Ultralight.eot');
+  src: url('/static/fonts/Flama-Ultralight.woff') format('woff'), url('/static/fonts/Flama-Ultralight.otf') format('opentype');
+}
+@font-face {
+  font-family: 'ALaMain';
+  src: url('/static/fonts/ALaMain.eot');
+  src: url('/static/fonts/ALaMain.woff') format('woff'), url('/static/fonts/ALaMain.ttf') format('truetype');
+}
+/* FONT SIZES ========================================================================================= */
+/*  Styles (LESS) for Greybox Health Web Portal
+    mixins.less - used accross other .less files (which imports mixins.less)
+    Created: 3/8/2015
+*/
+/* UI ELEMENTS ======================================================================================== */
+/* LAYOUT ============================================================================================= */
+/* TEXT =============================================================================================== */
+/* SPRITES ============================================================================================ */
+/* COSMETIC =========================================================================================== */
+/* BASIC HTML ELEMENTS ================================================================================ */
+body,
+html {
+  font-family: 'Flama', sans-serif;
+  font-size: 16px;
+  color: #414042;
+  background-color: #f8f8f8;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Links */
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+/* Lists */
+ul,
+li {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+/* UI ELEMENTS COMMON TO ALL PAGES  =================================================================== */
+/* Page header with title and icon */
+.header-container {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.header-container .header {
+  font-family: 'Flama-Ultralight', sans-serif;
+  font-size: 26px;
+  color: #414042;
+  margin: 25px 0;
+}
+.header-container .icon-container {
+  padding: 25px;
+  height: 0px;
+  width: 0px;
+  background-color: #32aded;
+  margin: 0 auto;
+  overflow: hidden;
+  -webkit-border-top-left-radius: 200px;
+  -webkit-border-top-right-radius: 200px;
+  -webkit-border-bottom-right-radius: 200px;
+  -webkit-border-bottom-left-radius: 200px;
+  -moz-border-radius-topleft: 200px;
+  -moz-border-radius-topright: 200px;
+  -moz-border-radius-bottomright: 200px;
+  -moz-border-radius-bottomleft: 200px;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  border-bottom-right-radius: 200px;
+  border-bottom-left-radius: 200px;
+}
+.header-container .icon-container .icon {
+  vertical-align: middle;
+}
+.page-header {
+  margin: 10px 0 0px;
+  font-family: 'Flama-Ultralight', sans-serif;
+  font-size: 26px;
+  color: #414042;
+  padding: 15px 0px 15px 0px;
+  border-bottom: 0px solid #dbdbdb;
+}
+/* Overlay (i.e. lightbox, modal) */
+.overlay-wrap {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.overlay-wrap .overlay-screen {
+  background-color: #414042;
+  zoom: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+  white-space: nowrap;
+}
+.overlay-wrap .close-overlay {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+.overlay-wrap .close-overlay .icon {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  width: 50px;
+  height: 50px;
+  background: url('/shared/images/icons_sprite.png');
+  background-position: 150px 0px;
+}
+.overlay-wrap .close-overlay:hover .icon {
+  background-position: 150px 50px;
+}
+/* hide elements of page */
+.hidden {
+  visibility: hidden !important;
+}
+/* Button */
+.button {
+  color: #32aded;
+  font-size: 20px;
+  padding: 15px;
+  margin: 5px;
+  border: 2px solid #32aded;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-block;
+}
+.button:hover {
+  background-color: #32aded;
+  color: #f8f8f8;
+}
+.button.disabled {
+  cursor: default;
+  color: #dbdbdb;
+  border: 2px solid #dbdbdb;
+}
+.button.disabled:hover {
+  background-color: transparent;
+}
+.button.active {
+  background-color: #32aded;
+  color: #f8f8f8;
+}
+/* Overlays elements with "Coming Soon" label (For Dev, Beta ONLY) */
+.coming-soon {
+  position: relative;
+}
+.coming-soon .coming-soon-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(248, 248, 248, 0.5);
+}
+.coming-soon .coming-soon-overlay div {
+  display: inline-block;
+  vertical-align: middle;
+}
+.coming-soon .coming-soon-overlay div#text {
+  font-family: 'Flama', sans-serif;
+  font-size: 16px;
+  color: #414042;
+  text-transform: uppercase;
+  padding: 15px;
+  border: 1px solid #414042;
+  font-size: 1rem;
+}
+.coming-soon .coming-soon-overlay div#vertical-adjust {
+  height: 100%;
+  width: 0px;
+}
+/* SITE NAVIGATION AND MENUS  ========================================================================= */
+/* Top navigation */
+.top-nav {
+  z-index: 99;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #dbdbdb;
+  /* Left side */
+  /* Right side */
+}
+.top-nav .top-nav-left {
+  display: inline-block;
+  vertical-align: middle;
+}
+.top-nav .top-nav-left #main-logo {
+  margin: 5px 0px 0px 20px;
+  height: 40px;
+}
+.top-nav .top-nav-right {
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.top-nav .top-nav-right .nav-items {
+  margin: 13px 20px 0px 0px;
+}
+.top-nav .top-nav-right .nav-items li {
+  display: inline-block;
+  padding: 0px 0px 0px 20px;
+}
+.top-nav .top-nav-right .nav-items li a {
+  text-decoration: none;
+  color: #313090;
+}
+.top-nav .top-nav-right .nav-items li a:hover {
+  color: #32aded;
+}
+.top-nav .top-nav-right#expand-menu-button {
+  display: none;
+  margin: 10px 20px 0px 0px;
+}
+.top-nav .top-nav-right#expand-menu-button #menu-icon {
+  display: inline-block;
+  max-width: 30px;
+  background: url('/static/img/sprite_30.png');
+  background-repeat: no-repeat;
+  background-size: 200%;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: 0% 0%;
+  width: 100%;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.top-nav .top-nav-right#expand-menu-button #menu-icon:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* initial ratio of 1:1*/
+}
+.top-nav .top-nav-right#expand-menu-button #menu-icon.active {
+  display: inline-block;
+  max-width: 30px;
+  background: url('/static/img/sprite_30.png');
+  background-repeat: no-repeat;
+  background-size: 200%;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: 100% 0%;
+  width: 100%;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.top-nav .top-nav-right#expand-menu-button #menu-icon.active:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* initial ratio of 1:1*/
+}
+/* Sidebar navigation */
+.top-nav .top-nav-right .nav-items #side-nav {
+  padding: 0px;
+  background-color: #32aded;
+  border-right: 1px solid #f8f8f8;
+  left: 0;
+  top: 49px;
+  position: fixed;
+  z-index: 98;
+  height: 100%;
+  width: 250px;
+  -webkit-box-shadow: inset -2px 0px 15px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset -2px 0px 15px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: inset -2px 0px 15px -5px rgba(0, 0, 0, 0.75);
+}
+.top-nav .top-nav-right .nav-items #side-nav li {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+.top-nav .top-nav-right .nav-items #side-nav li a {
+  width: 100%;
+  padding: 15px 20px 15px 20px;
+  display: block;
+  color: #f8f8f8;
+  text-decoration: none;
+}
+.top-nav .top-nav-right .nav-items #side-nav li:hover a {
+  background-color: #414042;
+}
+.top-nav .top-nav-right .nav-items #side-nav li.active a {
+  color: #414042;
+  background-color: #f8f8f8;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 2px solid #dbdbdb;
+}
+/* Container of content of each page */
+.main-content-wrapper {
+  text-align: center;
+  padding: 0px 25px 0px 275px;
+}
+.main-content-wrapper .main-content-container {
+  background-color: #f8f8f8;
+  text-align: left;
+  padding: 50px 0 50px 0;
+  max-width: 1300px;
+  min-width: 300px;
+  font-size: 15px;
+  display: block;
+  margin: 0px auto;
+  height: 100%;
+}
+/* SMALL SNIPPETS OF LESS FOR SPECIFIC PAGES ========================================================== */
+iframe {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+.widget-title {
+  font-family: 'Flama', sans-serif;
+  font-size: 20px;
+  color: #414042;
+}
+/* MEDIA QUERIES FOR RESPONSIVE DESIGN ================================================================ */
+@media only screen and (max-width: 768px) {
+  .top-nav {
+    position: absolute;
+  }
+  .top-nav .top-nav-right#expand-menu-button {
+    display: inline-block;
+  }
+  .top-nav .top-nav-right#menu {
+    margin: 50px 0px 0px 0px;
+  }
+  .top-nav .top-nav-right#menu .nav-items {
+    display: none;
+    background-color: #32aded;
+    width: 100%;
+    border-bottom: 2px solid #dbdbdb;
+    margin: 0px;
+  }
+  .top-nav .top-nav-right#menu .nav-items #side-nav {
+    position: inherit;
+    border: 0px;
+    display: block;
+    border-top: 1px solid #414042;
+    -webkit-box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  }
+  .top-nav .top-nav-right#menu .nav-items #side-nav li.active a {
+    border: 0px;
+  }
+  .top-nav .top-nav-right#menu .nav-items #side-nav li.active a:hover {
+    color: #414042;
+  }
+  .top-nav .top-nav-right#menu .nav-items li {
+    text-align: right;
+    width: 100%;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+  }
+  .top-nav .top-nav-right#menu .nav-items li a {
+    display: block;
+    padding: 20px 20px 20px 20px;
+    color: #f8f8f8;
+  }
+  .top-nav .top-nav-right#menu .nav-items li a:hover {
+    color: #f8f8f8;
+  }
+  .top-nav .top-nav-right#menu .nav-items li:hover {
+    background-color: #414042;
+  }
+  .top-nav .top-nav-right#menu .nav-items.active {
+    display: block;
+  }
+  .main-content-wrapper {
+    padding: 0 5px !important;
+  }
+}

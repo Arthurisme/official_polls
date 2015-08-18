@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+var numberOfPage=0;
+
+
+ //txt to html method:(or jason to html)
+ function txtToHtmlFunction(txt){
+	 if(txt=="1")
+	 {  var returnHtml="type1 "+txt}
+	 if(txt=="2")
+	 {  var returnHtml="type2 "+txt}
+	 if(txt=="3")
+	 {  var returnHtml="type "+txt}
+	 if(txt=="4")
+	 {  var returnHtml=questionType4(txt)}
+	 return returnHtml;
+ }
+  //txt to html method:(or jason to html)
+ function questionType4(txt){
+	 var TypereturnHtml="type 4 nest "+txt
+	 return "------------------------------------------"+TypereturnHtml;
+ }
+	
+	//var urlTest1="1.html";
+$(document).ready(function(){
+	
+    $("#clickTest").click(function(){
+		
+		//url change method: url is changed by click button
+		 numberOfPage++;
+		 var urlForData= ""+numberOfPage+".txt";
+		
+		
+		//now it is using txt file, it will be changed to using restful url:
+        $.ajax({url: urlForData, 
+		dataType: "text",
+		success: function(result){
+			
+			//get html from raw data such as txt or json:
+			 var txtToHtml=    txtToHtmlFunction(result);
+			
+			//show finial content from html:
+            $("#questions-main-body").html(txtToHtml );
+        }});
+    });
+});
+</script>
+</head>
+<body>
+
+<div id="questions-main-body"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button id="clickTest">Get External Content</button>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<header> <strong>Don't Touch The Button</strong>
+
+</header>
+<div class="game-object">
+    <script type="text/javascript">
+        var clicks = 0;
+        function updateClickCount() {
+            document.getElementById("clickCount").innerHTML = clicks;
+        }
+    </script>
+    <button type="button" onClick="clicks++;updateClickCount();" id="push">NO.</button>
+    <div id="clickCount"></div>
+</div>

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Liste des patients{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% block content %}
+    <h2 class="sub-header">Liste de patients</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+          <!-- <tr> -->
+                <th>Prénom</th>
+                <th>Nom de famille</th>
+                <th>Date de naissance</th>
+                <th>Health Number</th>
+                <th>Enregistrer un nouvel appareil</th>
+                <th>Program</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for p in patient_list %}
+                <tr>
+                    <td><a href="/staff_patient_profile/{{p.id}}/">{{p.firstName}}</a></td>
+                    <td>{{p.lastName}}</td>
+                    <td>{{p.birthDate}}</td>
+                    <td>{{p.healthNum}}</td>
+                    <td><a href="/register_device/{{p.id}}/">Nouvel appareil</a></td>
+                    <!-- Dropdown menu for changing program -->
+                    <td>
+                      <div class="dropdown" onChange="enable();">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{p.program}}
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          {% for s in program %}
+                          <li><a href="#">{{s.programName}}</a></li>
+                          {% endfor %}
+                          <li role="separator" class="divider"></li>
+                          <li class="dropdown-submit"><a class="dropdown-submit" type="submit" value="Submit">Submit</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <p> {{ device }} {{ device.registration_id}}</p>
+
+{% endblock %}
+
+{% block scripts %}
+
+
+<script type="text/javascript">
+    $('.dropdown-menu').click(function(event) {
+        return false
+    });
+    $('.dropdown-menu .dropdown-submit').click(function(event) {
+          return true
+      });
+</script>
+{% endblock %}

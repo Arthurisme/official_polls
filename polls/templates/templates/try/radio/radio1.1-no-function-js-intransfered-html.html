@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<p>choose:</p>
+
+
+
+<form action="#" method="post" class="demoForm" id="demoForm">
+    <fieldset>
+        <legend>Demo: Get Value of Selected</legend>
+    
+    <p>Select a shipping method:</p>
+    <p>
+        <label><input type="radio" name="ship" value="1" checked /> 1</label> <br>
+        <label><input type="radio" name="ship" value="2" /> 2</label> <br>
+        <label><input type="radio" name="ship" value="3" /> 3</label> <br>
+        <label><input type="radio" name="ship" value="4" /> 4</label> <br>
+        <label><input type="radio" name="ship" value="5" /> 5</label> <br>
+    </p>
+    
+    <p><button type="button" name="getVal">Get Value of Selected</button></p>
+    
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+
+ function function1(){
+    var variable1= document.getElementById("example");
+	 
+    alert("your text "+ variable1.value);
+}
+
+document.write('<td><input type="text" id="example"></td>'); 
+
+document.write('<td><input type="button" value="enter a text" onclick="function1()"></td>');
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-39542975-1', 'dyn-web.com');
+  ga('send', 'pageview');
+</script>            
+
+<script type="text/javascript">
+// to remove from global namespace
+(function() {
+    
+    function getRadioVal(form, name) {
+        var val;
+        var radios = form.elements[name];
+        
+        for (var i=0, len=radios.length; i<len; i++) {
+            if ( radios[i].checked ) {
+                val = radios[i].value;
+                break;
+            }
+        }
+        return val;
+    }
+
+
+    document.forms['demoForm'].elements['getVal'].onclick = function() {
+        alert( 'The selected radio button\'s value is: ' + getRadioVal(this.form, 'ship') );
+    };
+    
+    
+    // disable submission of all forms on this page
+    for (var i=0, len=document.forms.length; i<len; i++) {
+        document.forms[i].onsubmit = function() { return false; };
+    }
+    
+}());
+</script>
+
+</script>
+
+<script type="text/javascript">
+document.write("<a href='mailto:cadler@mpl.gov'>");
+document.write("cadler@mpl.gov");
+document.write("</a>");
+
+document.write("<h1>Monroe Public Library</h1>");
+ document.write('        <form action="#" method="post" class="demoForm" id="demoForm">                                 ');
+document.write('            <fieldset>                                                                                 ');
+document.write('                <legend>Demo: Get Value of Selected</legend>                                           ');
+document.write('                                                                                                       ');
+document.write('            <p>Select a shipping method:</p>                                                           ');
+document.write('            <p>                                                                                        ');
+document.write('                <label><input type="radio" name="ship" value="1" checked /> 1</label> <br>             ');
+document.write('                <label><input type="radio" name="ship" value="2" /> 2</label> <br>                     ');
+document.write('                <label><input type="radio" name="ship" value="3" /> 3</label> <br>                     ');
+document.write('                <label><input type="radio" name="ship" value="4" /> 4</label> <br>                     ');
+document.write('                <label><input type="radio" name="ship" value="5" /> 5</label> <br>                     ');
+document.write('            </p>                                                                                       ');
+document.write('                                                                                                       ');
+document.write('            <p><button type="button" name="getVal">Get Value of Selected</button></p>                  ');
+document.write('                                                                                                       ');
+document.write('            </fieldset>                                                                                ');
+document.write('        </form>                                                                                        ');
+
+
+</script>
+
+</body>
+</html>
